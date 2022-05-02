@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { PresenterProps } from "./presenter";
-import { FetchedPost } from "./types";
 
 export interface Props {}
 
-export const ContainerComponent = (props: Props): PresenterProps => {
+export type FetchedPost = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
+
+export const useFetchPost = (props: Props) => {
   const [posts, setPosts] = useState<FetchedPost[]>([]);
 
   useEffect(() => {
