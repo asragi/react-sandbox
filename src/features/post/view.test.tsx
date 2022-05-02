@@ -1,7 +1,14 @@
-import { ContainerComponent } from "./container";
+import { render, screen } from "@testing-library/react";
+import { PostView } from "./view";
 
-describe("test tutorial", () => {
-  test("test1", () => {
-    expect(1 + 2).toBe(3);
+const testProps = [
+  { title: "TitleA", id: 1 },
+  { title: "TitleB", id: 2 },
+];
+
+describe("assert view", () => {
+  test("title appears", () => {
+    render(<PostView posts={testProps} />);
+    expect(screen.getByText("TitleB")).toBeInTheDocument();
   });
 });
