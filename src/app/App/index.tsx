@@ -1,13 +1,3 @@
-import { PostList } from "../../features/post";
-import "./App.css";
+import { AppView } from "./view";
 
-function App() {
-  return (
-    <div>
-      <h1>learn react</h1>
-      <PostList />
-    </div>
-  );
-}
-
-export default App;
+export const App = AppView;
