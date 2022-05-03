@@ -1,4 +1,4 @@
-import { FetchedPost } from "../hooks/useFetchPost";
+import { FetchedPost } from "./useFetchPost";
 
 export interface PresenterProps {
   fetchedPosts: FetchedPost[];

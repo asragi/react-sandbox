@@ -1,5 +1,5 @@
 import { config } from "../../config";
-import { useFetchPost } from "../hooks/useFetchPost";
+import { useFetchPost } from "./useFetchPost";
 import { postPresenter } from "./presenter";
 import { PostView } from "./view";
 
