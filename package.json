@@ -1,6 +1,7 @@
 {
-  "name": "redux-test",
-  "version": "0.1.0",
+  "name": "redux-sandbox",
+  "version": "0.2.0",
+  "homepage": "https://www.ragi.house/react-sandbox/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
