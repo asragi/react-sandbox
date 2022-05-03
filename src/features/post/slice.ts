@@ -10,16 +10,15 @@ const initialState: PostState = {
   posts: [],
 };
 
-export const fetchPosts = (state: PostState, action: PayloadAction<Post[]>) => {
-  state.posts = action.payload;
-}
-
 const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    fetchPosts
+    fetchPosts: (state, action: PayloadAction<Post[]>) => {
+      state.posts = action.payload;
+    }
   },
 });
 
+export const { fetchPosts } = postSlice.actions;
 export const postReducer = postSlice.reducer;
