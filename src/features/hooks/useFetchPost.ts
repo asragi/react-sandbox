@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-export interface Props {}
+export interface Props {
+  url: URL
+}
 
 export type FetchedPost = {
   userId: number;
@@ -9,14 +11,14 @@ export type FetchedPost = {
   body: string;
 };
 
-export const useFetchPost = (props: Props) => {
+export const useFetchPost = ({ url }: Props) => {
   const [posts, setPosts] = useState<FetchedPost[]>([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch(url.toString())
       .then((res) => res.json())
       .then((data) => setPosts(data));
-  }, []);
+  }, [url]);
 
   return {
     fetchedPosts: posts,

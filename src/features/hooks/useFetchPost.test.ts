@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { useFetchPost } from "./useFetchPost";
-import { server } from '../../mocks';
+import { server, getPostUrl } from '../../mocks';
 
 describe("useFetchPost", () => {
   beforeAll(() => server.listen());
@@ -8,7 +8,7 @@ describe("useFetchPost", () => {
   afterAll(() => server.close());
 
   it("should be empty array", () => {
-    const { result } = renderHook(() => useFetchPost({}));
+    const { result } = renderHook(() => useFetchPost({url: getPostUrl}));
     const { current } = result;
     expect(current.fetchedPosts.length).toBe(0);
   });
