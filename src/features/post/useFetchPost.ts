@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { batchGetSelector } from "../post/selector";
-import { fetchPosts } from "../post/slice";
+import { batchGetSelector } from "./selector";
+import { fetchPosts } from "./slice";
 
 export interface Props {
   url: URL
@@ -17,12 +17,13 @@ export type FetchedPost = {
 export const useFetchPost = ({ url }: Props) => {
   const dispatch = useDispatch();
   const posts = useSelector(batchGetSelector);
+  const urlString = url.toString();
 
   useEffect(() => {
-    fetch(url.toString())
+    fetch(urlString)
       .then((res) => res.json())
       .then((data) => dispatch(fetchPosts(data)));
-  }, [url, dispatch]);
+  }, [dispatch, urlString]);
 
   return {
     fetchedPosts: posts,
